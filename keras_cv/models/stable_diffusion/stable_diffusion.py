@@ -754,7 +754,7 @@ class StableDiffusionBase:
         index_edit_tokens = tf.where(tf.equal(tokens, edit_tokens))[:, -1]
 
         # Replace the original weight values
-        weights[index_edit_tokens] = edit_weights
+        weights[index_edit_tokens] = tf.consant(edit_weights)
         return weights
 
     def _get_unconditional_context(self):
